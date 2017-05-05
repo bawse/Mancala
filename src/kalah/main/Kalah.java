@@ -95,8 +95,36 @@ public class Kalah {
 
 	}
 
-	public boolean outcome1(int finalIndex, int playerTurn){
+	public boolean outcome1(int finalIndex, int playerTurn, int[] board){
 
+		int houseNo;
+		boolean ownHouse;
+
+		if (finalIndex < (board.length/2) -1){
+			houseNo = finalIndex + 1;
+			if (playerTurn == 1){ // if finalIndex is on left-hand side of board and its P1's turn, then they own the house
+				ownHouse = true;
+			} else {
+				ownHouse = false;
+			}
+		} else {
+			houseNo = finalIndex - 6; // change 6 to NUMBER_HOUSES constant later
+			if (playerTurn  == 2){
+				ownHouse = true; // if the finalIndex is on the right-hand side of the 1D board and it's P2's turn, then they own the house
+			} else {
+				ownHouse = false;
+			}
+		}
+
+		if (houseNo > 6){ // change 6 to use constant as above
+			return false; // house > 6 means that the last seed was sown on a store not a house
+		}
+
+		if (!ownHouse || board[finalIndex] >= 1){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public List<Integer> toList(int[] intArray){
