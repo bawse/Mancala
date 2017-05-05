@@ -10,6 +10,8 @@ import java.util.List;
 
 /**
  * This class is the starting point for the Modifiability Assignment.
+ * The game board is represented as a 1D array as follows:
+ * {1,2,3,4,5,6,P1Store | 1,2,3,4,5,6,P2Store}
  */
 public class Kalah {
 
@@ -30,7 +32,7 @@ public class Kalah {
 		int playerTurn = 1;
 		//int indexMultiplier = 1; //player 1 always goes first
 		String input = io.readFromKeyboard("Player 1's turn - Specify house number or 'q' to quit: "); // add min/max bounds 1-6
-		int houseNumber = Integer.parseInt(input); // remember to multiply this by 2 if player 2.
+		int houseNumber = Integer.parseInt(input);
 
 		performMove(board, playerTurn, houseNumber);
 
@@ -54,20 +56,25 @@ public class Kalah {
 
 	}
 
-	public void performMove(int[] board, int playerTurn, int houseNumber){
+	public int performMove(int[] board, int playerTurn, int houseNumber){ // returns a value that indicates which players turn it is after performing the move
+
+		//TODO: THIS ONLY WORKS FOR PLAYER1 TURN - NEED TO CALCULATE HOUSEINDEX IF PLAYERTURN=2
 		int seeds = board[houseNumber - 1];
 		board[houseNumber - 1]=0;
+		int finalIndex = 0;
 
 		for (int i=houseNumber;seeds>0;i++){
 			if (i>board.length-1){
 				i=0;
 			}
+			finalIndex = i; // at the end of the loop, finalIndex will be the index at which the last seed was sown.
 			if (!otherPlayerStore(i, playerTurn)) {
 				board[i]++;
 				seeds--;
 			}
 		}
 		System.out.println(Arrays.toString(board));
+		return playerTurn; // need to add checks for player turn
 	}
 
 	// returns true if the current board index is the other player's store. if it is, then a seed cannot be sown in it.
@@ -85,6 +92,10 @@ public class Kalah {
 		} else {
 			return false;
 		}
+
+	}
+
+	public boolean outcome1(int finalIndex, int playerTurn){
 
 	}
 

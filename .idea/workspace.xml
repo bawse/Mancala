@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e62717d-b61d-497e-aa65-9dc167fdba34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/kalah.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IO.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Mancala.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kalah/main/Kalah.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kalah/main/Mancala.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kalah/test/TestKalah.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/capture.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/continue_wrap.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/double_wrap.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/endinempty.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/exactlapcapture.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/exactlapemptycapture.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game_empty.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game_empty_houses.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game_store.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/full_game_tie.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/p1_continue.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/quit.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/simple_start.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/simple_two_moves.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/single_wrap.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/test1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/test2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/useempty.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/wrapped.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kalah/main/Kalah.java" afterPath="$PROJECT_DIR$/src/kalah/main/Kalah.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kalah/test/TestKalah.java" afterPath="$PROJECT_DIR$/src/kalah/test/TestKalah.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,18 +23,8 @@
       <file leaf-file-name="Kalah.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kalah/main/Kalah.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="77" column="48" lean-forward="true" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestKalah.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kalah/test/TestKalah.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="115" column="12" lean-forward="false" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -88,6 +49,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/kalah/test/TestKalah.java" />
+        <option value="$PROJECT_DIR$/src/kalah/main/Kalah.java" />
       </list>
     </option>
   </component>
@@ -602,16 +564,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1493932421664</updated>
-      <workItem from="1493932428000" duration="289000" />
+      <workItem from="1493932428000" duration="4674000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289000" />
+    <option name="totallyTimeSpent" value="4674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -627,7 +589,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23489584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -664,16 +626,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kalah/test/TestKalah.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="115" column="12" lean-forward="false" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="374">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kalah/main/Kalah.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="77" column="48" lean-forward="true" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+        <state relative-caret-position="340">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding />
         </state>
       </provider>
