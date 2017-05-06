@@ -21,7 +21,7 @@ public class Kalah {
 		new Kalah().play(new MockIO());
 	}
 	public void play(IO io) {
-		int[] board = new int[]{15,4,4,4,4,4,0,4,4,4,4,4,4,0};
+		int[] board = new int[]{4,4,4,4,0,4,0,4,4,4,4,4,4,0};
 		// Replace what's below with your implementation
 //		io.println("+----+-------+-------+-------+-------+-------+-------+----+");
 //		io.println("| P2 | 6[ 4] | 5[ 4] | 4[ 4] | 3[ 4] | 2[ 4] | 1[ 4] |  0 |");
@@ -34,7 +34,10 @@ public class Kalah {
 		String input = io.readFromKeyboard("Player 1's turn - Specify house number or 'q' to quit: "); // add min/max bounds 1-6
 		int houseNumber = Integer.parseInt(input);
 
-		performMove(board, playerTurn, houseNumber);
+		//System.out.println(Arrays.toString(board));
+		playerTurn = performMove(board, playerTurn, houseNumber);
+		//System.out.println(Arrays.toString(board));
+		System.out.println(playerTurn);
 
 		//System.out.println(seeds);
 //		for (int i=houseNumber+1;seeds>0;i++){
@@ -73,6 +76,11 @@ public class Kalah {
 				seeds--;
 			}
 		}
+		if (outcome1(finalIndex, playerTurn, board)){
+		    if (playerTurn == 1){
+		        return 2;
+            } else { return 1; }
+        }
 		System.out.println(Arrays.toString(board));
 		return playerTurn; // need to add checks for player turn
 	}
@@ -120,9 +128,10 @@ public class Kalah {
 			return false; // house > 6 means that the last seed was sown on a store not a house
 		}
 
-		if (!ownHouse || board[finalIndex] >= 1){
+		if (!ownHouse || board[finalIndex] - 1 >= 1){ // the seed has already been sown so need to subtract 1 to check if there were no seeds initially
 			return true;
 		} else {
+			//System.out.println("There were initially " + (board[finalIndex] - 1 + " seeds in  house " + (finalIndex + 1)));
 			return false;
 		}
 	}
