@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e62717d-b61d-497e-aa65-9dc167fdba34" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/kalah.xml" afterPath="$PROJECT_DIR$/.idea/libraries/kalah.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/guava_20_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mancala.iml" afterPath="$PROJECT_DIR$/Mancala.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kalah/main/Kalah.java" afterPath="$PROJECT_DIR$/src/kalah/main/Kalah.java" />
@@ -31,9 +28,28 @@
       <file leaf-file-name="Kalah.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kalah/main/Kalah.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+              <folding>
+                <element signature="method#otherPlayerStore#0;class#Kalah#0" expanded="false" />
+                <element signature="method#ownedByPlayer#0;class#Kalah#0" expanded="false" />
+                <element signature="method#outcome1#0;class#Kalah#0" expanded="false" />
+                <element signature="method#outcome2#0;class#Kalah#0" expanded="false" />
+                <element signature="method#toList#0;class#Kalah#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestKalah.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kalah/test/TestKalah.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-794">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+              <folding>
+                <element signature="e#924#925#0" expanded="true" />
+                <element signature="e#966#967#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,7 +214,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mancala_assignment/kalah.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../guava-20.0.jar!/" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
@@ -617,12 +633,12 @@
       <option name="presentableId" value="Default" />
       <updated>1493932421664</updated>
       <workItem from="1493932428000" duration="8149000" />
-      <workItem from="1494041773861" duration="1278000" />
+      <workItem from="1494041773861" duration="22374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9427000" />
+    <option name="totallyTimeSpent" value="30523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -686,26 +702,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#otherPlayerStore#0;class#Kalah#0" expanded="false" />
+            <element signature="method#ownedByPlayer#0;class#Kalah#0" expanded="false" />
+            <element signature="method#outcome1#0;class#Kalah#0" expanded="false" />
+            <element signature="method#outcome2#0;class#Kalah#0" expanded="false" />
+            <element signature="method#toList#0;class#Kalah#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kalah/Kalah.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/capture.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/full_game1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kalah/test/TestKalah.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="-794">
           <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kalah/main/Kalah.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="113" column="32" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="330">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="method#otherPlayerStore#0;class#Kalah#0" expanded="false" />
+            <element signature="method#ownedByPlayer#0;class#Kalah#0" expanded="false" />
+            <element signature="method#outcome1#0;class#Kalah#0" expanded="false" />
+            <element signature="method#outcome2#0;class#Kalah#0" expanded="false" />
+            <element signature="method#toList#0;class#Kalah#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -785,7 +830,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>kalah</last-edited>
+          <last-edited>guava-20.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
