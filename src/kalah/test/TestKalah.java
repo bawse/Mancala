@@ -1,7 +1,8 @@
 package kalah.test;
 
 import junit.framework.TestCase;
-import kalah.main.Kalah;
+
+import kalah.Kalah;
 
 import com.qualitascorpus.testsupport.MockIO;
 /**

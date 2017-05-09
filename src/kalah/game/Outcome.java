@@ -1,8 +1,5 @@
 package kalah.game;
 
-import com.google.common.collect.Iterables;
-import com.google.common.collect.ObjectArrays;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -117,18 +114,12 @@ public abstract class Outcome implements Strategy {
 
     public Pit[] capture (int finalIndex, int playerTurn, Pit[] gameBoard, Player player1, Player player2){
 
-        //IOHandler.printGameBoard(gameBoard);
         int player1StoreIndex = (gameBoard.length/2) - 1;
         int player2StoreIndex = gameBoard.length - 1;
         int player1Store = gameBoard[player1StoreIndex].getSeeds();
         int player2Store = gameBoard[player2StoreIndex].getSeeds();
-        //System.out.println("Player1store " + player1Store);
-        //System.out.println("Player2stoe " + player2Store);
 
         gameBoard[finalIndex].setSeeds(0); // need to subtract last sown seed as we need to add it to the player store
-        //IOHandler.printGameBoard(gameBoard);
-//        player1.setPlayerBoard(Arrays.copyOfRange(gameBoard, 0, gameBoard.length/2));
-//        player2.setPlayerBoard(Arrays.copyOfRange(gameBoard, gameBoard.length/2, gameBoard.length ));
         int houseNo;
         if (finalIndex > (gameBoard.length/2 - 1)){
             houseNo = finalIndex - gameBoard.length/2 + 1;
@@ -142,21 +133,16 @@ public abstract class Outcome implements Strategy {
         List<Pit> player2List = toList(player2Side);
         List<Pit> player1List = toList(player1Side);
         Collections.reverse(player2List);
-        //IOHandler.printGameBoard(listToArray(player2List));
         List<Pit> rearrangedBoard = new ArrayList<>();
         rearrangedBoard.addAll(player1List); rearrangedBoard.addAll(player2List);
-        //IOHandler.printGameBoard(listToArray(rearrangedBoard));
 
         int seedsToTransfer = 1; // last sown seed
 
         if (playerTurn == 1){
             seedsToTransfer = seedsToTransfer + rearrangedBoard.get((houseNo - 1) + rearrangedBoard.size()/2).getSeeds();
             rearrangedBoard.set((houseNo - 1) + (rearrangedBoard.size()/2), new Pit(0,2));
-            //IOHandler.printGameBoard(listToArray(rearrangedBoard));
             rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store + seedsToTransfer,1));
-            //IOHandler.printGameBoard(listToArray(rearrangedBoard));
             rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store,2));
-            //IOHandler.printGameBoard(listToArray(rearrangedBoard));
         } else {
             seedsToTransfer = seedsToTransfer + rearrangedBoard.get(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2)).getSeeds();
             rearrangedBoard.set(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2), new Pit(0,1));
@@ -165,17 +151,15 @@ public abstract class Outcome implements Strategy {
 
         }
 
-        Pit[] rearrangedBoardArray = Iterables.toArray(rearrangedBoard, Pit.class);
-        //IOHandler.printGameBoard(rearrangedBoardArray);
-        //System.out.println(Arrays.toString(rearrangedBoardArray));
+        Pit[] rearrangedBoardArray = rearrangedBoard.toArray(new Pit[rearrangedBoard.size()]);
 
         Pit[] p1 = Arrays.copyOfRange(rearrangedBoardArray, 0, rearrangedBoardArray.length/2);
-        //IOHandler.printGameBoard(p1);
         Pit[] p2 = Arrays.copyOfRange(rearrangedBoardArray, rearrangedBoardArray.length/2, rearrangedBoardArray.length);
-        //IOHandler.printGameBoard(p2);
         Collections.reverse(Arrays.asList(p2));
-        //IOHandler.printGameBoard(p2);
-        Pit[] newBoard = ObjectArrays.concat(p1,p2, Pit.class);
+        Pit[] newBoard = new Pit[p1.length + p2.length];
+
+        System.arraycopy(p1,0,newBoard,0,p1.length);
+        System.arraycopy(p2,0,newBoard,p1.length,p2.length);
         return newBoard;
     }
 

@@ -1,6 +1,5 @@
 package kalah.game;
 
-import com.google.common.collect.ObjectArrays;
 import kalah.util.IOHandler;
 
 import java.util.Arrays;
@@ -34,7 +33,6 @@ public class Board extends Outcome{
     public void initializeGameBoard(){
         Pit[] player1Board = new Pit[NUM_HOUSES_EACH + 1];
         Pit[] player2Board = new Pit[NUM_HOUSES_EACH + 1]; // + 1 for the store.
-        //gameBoard = new Pit[2*(NUM_HOUSES_EACH + 1)];
 
         for (int i=0;i<=NUM_HOUSES_EACH;i++){
             if (i == NUM_HOUSES_EACH) {
@@ -47,31 +45,24 @@ public class Board extends Outcome{
         }
         player1 = new Player(1, player1Board);
         player2 = new Player(2,player2Board);
-        //gameBoard = ObjectArrays.concat(player1Board, player2Board,Pit.class);
     }
 
     public boolean gameOver(){
 
         //updatePlayerBoards();
         boolean gameOver = true;
-        IOHandler.printGameBoard(player1.getPlayerBoard());
-        IOHandler.printGameBoard(player2.getPlayerBoard());
-
-        System.out.println("game over player turn: " + playerTurn);
         Pit[] player1Board = player1.getPlayerBoard();
         Pit[] player2Board = player2.getPlayerBoard();
 
         if (this.playerTurn == 1){
             for (int i=0;i<player1.getPlayerBoard().length-1;i++){
                 if (player1Board[i].getSeeds() != 0){
-                    System.out.println(player1Board[i].getSeeds());
                     return false;
                 }
             }
         } else {
             for (int i=0;i<player2Board.length-1;i++){
                 if (player2Board[i].getSeeds() != 0){
-                    System.out.println(player2Board[i].getSeeds());
                     return false;
                 }
             }
@@ -85,7 +76,13 @@ public class Board extends Outcome{
     }
 
     public Pit[] getGameBoard(){
-        return ObjectArrays.concat(player1.getPlayerBoard(), player2.getPlayerBoard(),Pit.class);
+        Pit[] p1 = player1.getPlayerBoard();
+        Pit[] p2 = player2.getPlayerBoard();
+        Pit[] newBoard = new Pit[p1.length + p2.length];
+
+        System.arraycopy(p1,0,newBoard,0,p1.length);
+        System.arraycopy(p2,0,newBoard,p1.length,p2.length);
+        return newBoard;
     }
 
     public int performMove(int houseNumber, int playerTurn){
@@ -124,17 +121,13 @@ public class Board extends Outcome{
             }
         }
         updatePlayerBoards(gameBoard);
-        //IOHandler.printGameBoard(gameBoard);
 
         if (outcome1(finalIndex,playerTurn, gameBoard)){
-            System.out.println("outcome1");
             this.playerTurn = returnNextPlayer(playerTurn);
             return returnNextPlayer(playerTurn);
         } else if (outcome2(finalIndex, playerTurn, gameBoard)){
-            System.out.println("outcome2 returning " + playerTurn);
             return playerTurn; // player gets another turn;
         } else if (outcome3(finalIndex, playerTurn, gameBoard, player1, player2)){
-            System.out.println("outcome3");
             gameBoard = capture(finalIndex, playerTurn, gameBoard, player1, player2);
             updatePlayerBoards(gameBoard);
             this.playerTurn = returnNextPlayer(playerTurn);

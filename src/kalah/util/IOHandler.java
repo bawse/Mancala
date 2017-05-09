@@ -1,13 +1,10 @@
 package kalah.util;
 
-import com.google.common.primitives.Ints;
 import com.qualitascorpus.testsupport.IO;
-import kalah.game.Outcome;
 import kalah.game.Pit;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.stream.IntStream;
 
 /**
  * Created by Jay on 5/8/2017.
