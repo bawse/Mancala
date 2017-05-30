@@ -97,7 +97,6 @@ public abstract class Outcome implements Strategy {
         } else {
             houseNo = finalIndex + 1;
         }
-
         Pit[] player2Side = Arrays.copyOfRange(player2.getPlayerBoard(),0, player2.getPlayerBoard().length -1); // player2 without store
         Pit[] player1Side = Arrays.copyOfRange(player1.getPlayerBoard(), 0, player1.getPlayerBoard().length - 1); // player1 without store
 
@@ -141,7 +140,7 @@ public abstract class Outcome implements Strategy {
         if (playerTurn == 1){
             seedsToTransfer = seedsToTransfer + rearrangedBoard.get((houseNo - 1) + rearrangedBoard.size()/2).getSeeds();
             rearrangedBoard.set((houseNo - 1) + (rearrangedBoard.size()/2), new Pit(0,2));
-            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store + seedsToTransfer,1));
+            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store + seedsToTransfer,1)); // adding the stores with the captured seeds
             rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store,2));
         } else {
             seedsToTransfer = seedsToTransfer + rearrangedBoard.get(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2)).getSeeds();
@@ -171,15 +170,5 @@ public abstract class Outcome implements Strategy {
         }
         return intList;
     }
-
-    public Pit[] listToArray(List<Pit> list){
-        Pit[] array = new Pit[list.size()];
-
-        for (int i=0;i<list.size();i++){
-            array[i] = list.get(i);
-        }
-        return array;
-    }
-
 
 }

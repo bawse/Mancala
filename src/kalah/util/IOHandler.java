@@ -53,9 +53,6 @@ public class IOHandler {
         io.println("+----+-------+-------+-------+-------+-------+-------+----+");
     }
 
-//    public Pit[] reverse(Pit[] original){
-//
-//    }
 
     public void displayScore(Pit[] board){
 
@@ -93,11 +90,4 @@ public class IOHandler {
         return sum;
     }
 
-    public static void printGameBoard(Pit[] gameBoard){
-        int[] array = new int[gameBoard.length];
-        for (int i=0;i<gameBoard.length;i++){
-            array[i] = gameBoard[i].getSeeds();
-        }
-        System.out.println(Arrays.toString(array));
-    }
 }

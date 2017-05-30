@@ -18,6 +18,7 @@ public class Kalah {
 	static final int NUM_HOUSES_EACH = 6;
 	static final int NUM_SEEDS_PER_HOUSE = 4;
 	int boardLength = NUM_HOUSES_EACH * 2 + 2;
+	boolean robotPlayer = false;
 	IO io;
 
 	//int[] board = new int[]{4,4,4,4,4,4,0,4,4,4,4,4,4,0};
@@ -39,7 +40,7 @@ public class Kalah {
 		//int indexMultiplier = 1; //player 1 always goes first
 		int houseNumber;
 
-		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE);
+		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE, robotPlayer);
 		printer.boardString(board.getGameBoard());
 		while (!board.gameOver() && (houseNumber = io.readInteger("Player P"+playerTurn+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q")) >= 0) {
 

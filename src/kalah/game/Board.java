@@ -12,16 +12,16 @@ import java.util.Arrays;
 public class Board extends Outcome{
 
     private int playerTurn;
-    //private Pit[] gameBoard;
     private Player player1;
     private Player player2;
     private int NUM_HOUSES_EACH; // default is 6 houses each + 1 store
     private int NUM_SEEDS_IN_HOUSE;
     private int gameBoardLength;
+    public boolean robotPlayer;
 
 
-
-    public Board (int playerTurn, int numHouses, int numSeeds){
+    public Board (int playerTurn, int numHouses, int numSeeds, boolean robotPlayer){
+        this.robotPlayer = robotPlayer;
         this.playerTurn = playerTurn;
         this.NUM_HOUSES_EACH = numHouses;
         super.setNUM_HOUSES_EACH(this.NUM_HOUSES_EACH);
@@ -43,8 +43,8 @@ public class Board extends Outcome{
                 player2Board[i] = new House(NUM_SEEDS_IN_HOUSE, 2, i+1);
             }
         }
-        player1 = new Player(1, player1Board);
-        player2 = new Player(2,player2Board);
+        player1 = new HumanPlayer(1, player1Board);
+        player2 = robotPlayer ? new RobotPlayer(2, player2Board) : new HumanPlayer(2,player2Board);
     }
 
     public boolean gameOver(){
@@ -138,8 +138,6 @@ public class Board extends Outcome{
         }
     }
 
-
-
     public boolean otherPlayerStore(int index){
 
         int player1StoreIndex = (gameBoardLength/2) - 1;
@@ -155,11 +153,7 @@ public class Board extends Outcome{
     }
 
     public int returnNextPlayer(int playerTurn){
-        if (playerTurn == 1){
-            return 2;
-        } else {
-            return 1;
-        }
+        if (playerTurn == 1) return 2; else return 1;
     }
 
 }
