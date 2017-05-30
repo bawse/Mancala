@@ -19,7 +19,6 @@ public class Board extends Outcome{
     private int gameBoardLength;
     public boolean robotPlayer;
 
-
     public Board (int playerTurn, int numHouses, int numSeeds, boolean robotPlayer){
         this.robotPlayer = robotPlayer;
         this.playerTurn = playerTurn;
@@ -30,6 +29,9 @@ public class Board extends Outcome{
         initializeGameBoard();
     }
 
+    public Player getPlayer(int playerNumber){
+        if (playerNumber == 1) return player1; else return player2;
+    }
     public void initializeGameBoard(){
         Pit[] player1Board = new Pit[NUM_HOUSES_EACH + 1];
         Pit[] player2Board = new Pit[NUM_HOUSES_EACH + 1]; // + 1 for the store.
@@ -48,8 +50,6 @@ public class Board extends Outcome{
     }
 
     public boolean gameOver(){
-
-        //updatePlayerBoards();
         boolean gameOver = true;
         Pit[] player1Board = player1.getPlayerBoard();
         Pit[] player2Board = player2.getPlayerBoard();
@@ -139,7 +139,6 @@ public class Board extends Outcome{
     }
 
     public boolean otherPlayerStore(int index){
-
         int player1StoreIndex = (gameBoardLength/2) - 1;
         int player2StoreIndex = gameBoardLength - 1;
 
@@ -149,7 +148,6 @@ public class Board extends Outcome{
         else {
             return false;
         }
-
     }
 
     public int returnNextPlayer(int playerTurn){
