@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="a05_kalah">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../a05_kalah.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
