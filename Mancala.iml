@@ -8,6 +8,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="a05_kalah" level="project" />
-    <orderEntry type="library" name="junit-4.11" level="project" />
+    <orderEntry type="library" name="junit-4.12" level="project" />
   </component>
 </module>

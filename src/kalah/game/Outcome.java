@@ -111,56 +111,56 @@ public abstract class Outcome implements Strategy {
         }
     }
 
-    public Pit[] capture (int finalIndex, int playerTurn, Pit[] gameBoard, Player player1, Player player2){
-
-        int player1StoreIndex = (gameBoard.length/2) - 1;
-        int player2StoreIndex = gameBoard.length - 1;
-        int player1Store = gameBoard[player1StoreIndex].getSeeds();
-        int player2Store = gameBoard[player2StoreIndex].getSeeds();
-
-        gameBoard[finalIndex].setSeeds(0); // need to subtract last sown seed as we need to add it to the player store
-        int houseNo;
-        if (finalIndex > (gameBoard.length/2 - 1)){
-            houseNo = finalIndex - gameBoard.length/2 + 1;
-        } else {
-            houseNo = finalIndex + 1;
-        }
-
-        Pit[] player2Side = Arrays.copyOfRange(player2.getPlayerBoard(),0, player2.getPlayerBoard().length -1); // player2 without store
-        Pit[] player1Side = Arrays.copyOfRange(player1.getPlayerBoard(), 0, player1.getPlayerBoard().length - 1); // player1 without store
-
-        List<Pit> player2List = toList(player2Side);
-        List<Pit> player1List = toList(player1Side);
-        Collections.reverse(player2List);
-        List<Pit> rearrangedBoard = new ArrayList<>();
-        rearrangedBoard.addAll(player1List); rearrangedBoard.addAll(player2List);
-
-        int seedsToTransfer = 1; // last sown seed
-
-        if (playerTurn == 1){
-            seedsToTransfer = seedsToTransfer + rearrangedBoard.get((houseNo - 1) + rearrangedBoard.size()/2).getSeeds();
-            rearrangedBoard.set((houseNo - 1) + (rearrangedBoard.size()/2), new Pit(0,2));
-            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store + seedsToTransfer,1)); // adding the stores with the captured seeds
-            rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store,2));
-        } else {
-            seedsToTransfer = seedsToTransfer + rearrangedBoard.get(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2)).getSeeds();
-            rearrangedBoard.set(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2), new Pit(0,1));
-            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store,1));
-            rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store + seedsToTransfer, 2));
-
-        }
-
-        Pit[] rearrangedBoardArray = rearrangedBoard.toArray(new Pit[rearrangedBoard.size()]);
-
-        Pit[] p1 = Arrays.copyOfRange(rearrangedBoardArray, 0, rearrangedBoardArray.length/2);
-        Pit[] p2 = Arrays.copyOfRange(rearrangedBoardArray, rearrangedBoardArray.length/2, rearrangedBoardArray.length);
-        Collections.reverse(Arrays.asList(p2));
-        Pit[] newBoard = new Pit[p1.length + p2.length];
-
-        System.arraycopy(p1,0,newBoard,0,p1.length);
-        System.arraycopy(p2,0,newBoard,p1.length,p2.length);
-        return newBoard;
-    }
+//    public Pit[] capture (int finalIndex, int playerTurn, Pit[] gameBoard, Player player1, Player player2){
+//
+//        int player1StoreIndex = (gameBoard.length/2) - 1;
+//        int player2StoreIndex = gameBoard.length - 1;
+//        int player1Store = gameBoard[player1StoreIndex].getSeeds();
+//        int player2Store = gameBoard[player2StoreIndex].getSeeds();
+//
+//        gameBoard[finalIndex].setSeeds(0); // need to subtract last sown seed as we need to add it to the player store
+//        int houseNo;
+//        if (finalIndex > (gameBoard.length/2 - 1)){
+//            houseNo = finalIndex - gameBoard.length/2 + 1;
+//        } else {
+//            houseNo = finalIndex + 1;
+//        }
+//
+//        Pit[] player2Side = Arrays.copyOfRange(player2.getPlayerBoard(),0, player2.getPlayerBoard().length -1); // player2 without store
+//        Pit[] player1Side = Arrays.copyOfRange(player1.getPlayerBoard(), 0, player1.getPlayerBoard().length - 1); // player1 without store
+//
+//        List<Pit> player2List = toList(player2Side);
+//        List<Pit> player1List = toList(player1Side);
+//        Collections.reverse(player2List);
+//        List<Pit> rearrangedBoard = new ArrayList<>();
+//        rearrangedBoard.addAll(player1List); rearrangedBoard.addAll(player2List);
+//
+//        int seedsToTransfer = 1; // last sown seed
+//
+//        if (playerTurn == 1){
+//            seedsToTransfer = seedsToTransfer + rearrangedBoard.get((houseNo - 1) + rearrangedBoard.size()/2).getSeeds();
+//            rearrangedBoard.set((houseNo - 1) + (rearrangedBoard.size()/2), new Pit(0,2));
+//            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store + seedsToTransfer,1)); // adding the stores with the captured seeds
+//            rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store,2));
+//        } else {
+//            seedsToTransfer = seedsToTransfer + rearrangedBoard.get(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2)).getSeeds();
+//            rearrangedBoard.set(rearrangedBoard.size() - houseNo - (rearrangedBoard.size()/2), new Pit(0,1));
+//            rearrangedBoard.add(rearrangedBoard.size()/2, new Pit(player1Store,1));
+//            rearrangedBoard.add(rearrangedBoard.size()/2 + 1, new Pit(player2Store + seedsToTransfer, 2));
+//
+//        }
+//
+//        Pit[] rearrangedBoardArray = rearrangedBoard.toArray(new Pit[rearrangedBoard.size()]);
+//
+//        Pit[] p1 = Arrays.copyOfRange(rearrangedBoardArray, 0, rearrangedBoardArray.length/2);
+//        Pit[] p2 = Arrays.copyOfRange(rearrangedBoardArray, rearrangedBoardArray.length/2, rearrangedBoardArray.length);
+//        Collections.reverse(Arrays.asList(p2));
+//        Pit[] newBoard = new Pit[p1.length + p2.length];
+//
+//        System.arraycopy(p1,0,newBoard,0,p1.length);
+//        System.arraycopy(p2,0,newBoard,p1.length,p2.length);
+//        return newBoard;
+//    }
 
     public static List<Pit> toList(Pit[] playerBoard){
         List<Pit> intList = new ArrayList<>();

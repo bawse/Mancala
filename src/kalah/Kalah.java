@@ -5,6 +5,7 @@ import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 import kalah.game.Board;
 import kalah.game.RobotPlayer;
+import kalah.util.BoardUtils;
 import kalah.util.IOHandler;
 
 /**
@@ -31,8 +32,8 @@ public class Kalah {
 
 		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE, robotPlayer);
 		printer.boardString(board.getGameBoard());
-		while ((!board.gameOver() && board.getPlayer(playerTurn) instanceof RobotPlayer && (houseNumber = ((RobotPlayer)board.getPlayer(playerTurn)).getMove(board)) >= 0) ||
-				!board.gameOver() && (houseNumber = io.readInteger("Player P"+playerTurn+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q")) >= 0) {
+		while ((!BoardUtils.gameOver(board, playerTurn) && board.getPlayer(playerTurn) instanceof RobotPlayer && (houseNumber = ((RobotPlayer)board.getPlayer(playerTurn)).getMove(board)) >= 0) ||
+				!BoardUtils.gameOver(board, playerTurn) && (houseNumber = io.readInteger("Player P"+playerTurn+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q")) >= 0) {
 
 			playerTurn = board.performMove(houseNumber, playerTurn);
 			printer.boardString(board.getGameBoard());
@@ -40,7 +41,7 @@ public class Kalah {
 		//game over message
 		io.println("Game over");
 		printer.boardString(board.getGameBoard());
-		if (board.gameOver()) {
+		if (BoardUtils.gameOver(board, playerTurn)) {
 			printer.displayScore(board.getGameBoard());
 		}
 
