@@ -51,6 +51,7 @@ public class Board extends Outcome{
         }
         player1 = new Player(1, player1Board);
         player2 = new Player(2,player2Board);
+        // Robot player could be instantiated in the following way:
         //player1 = new HumanPlayer(1, player1Board);
         //player2 = robotPlayer ? new RobotPlayer(2, player2Board) : new HumanPlayer(2,player2Board);
     }
@@ -142,8 +143,8 @@ public class Board extends Outcome{
         Pit[] player2Side = Arrays.copyOfRange(player2.getPlayerBoard(),0, player2.getPlayerBoard().length -1); // player2 without store
         Pit[] player1Side = Arrays.copyOfRange(player1.getPlayerBoard(), 0, player1.getPlayerBoard().length - 1); // player1 without store
 
-        List<Pit> player2List = toList(player2Side);
-        List<Pit> player1List = toList(player1Side);
+        List<Pit> player2List = BoardUtils.toList(player2Side);
+        List<Pit> player1List = BoardUtils.toList(player1Side);
         Collections.reverse(player2List);
         List<Pit> rearrangedBoard = new ArrayList<>();
         rearrangedBoard.addAll(player1List); rearrangedBoard.addAll(player2List);

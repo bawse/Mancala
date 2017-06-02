@@ -3,6 +3,9 @@ package kalah.util;
 import kalah.game.Board;
 import kalah.game.Pit;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jpan889 on 2/06/2017.
  */
@@ -44,5 +47,14 @@ public final class BoardUtils {
 
     public static int returnNextPlayer(int playerTurn){
         if (playerTurn == 1) return 2; else return 1;
+    }
+
+    public static List<Pit> toList(Pit[] playerBoard){
+        List<Pit> intList = new ArrayList<>();
+        for (int index = 0; index < playerBoard.length; index++)
+        {
+            intList.add(playerBoard[index]);
+        }
+        return intList;
     }
 }
