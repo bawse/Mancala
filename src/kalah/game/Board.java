@@ -21,10 +21,8 @@ public class Board extends Outcome implements SeedDispersalStrategy{
     private int NUM_HOUSES_EACH; // default is 6 houses each + 1 store
     private int NUM_SEEDS_IN_HOUSE;
     private int gameBoardLength;
-    public boolean robotPlayer;
 
-    public Board (int playerTurn, int numHouses, int numSeeds, boolean robotPlayer){
-        this.robotPlayer = robotPlayer;
+    public Board (int playerTurn, int numHouses, int numSeeds){
         this.playerTurn = playerTurn;
         this.NUM_HOUSES_EACH = numHouses;
         super.setNUM_HOUSES_EACH(this.NUM_HOUSES_EACH);
@@ -49,9 +47,10 @@ public class Board extends Outcome implements SeedDispersalStrategy{
                 player2Board[i] = new House(NUM_SEEDS_IN_HOUSE, 2, i+1);
             }
         }
-        player1 = new Player(1, player1Board);
-        player2 = new Player(2,player2Board);
-        // Robot player could be instantiated in the following way:
+
+        player1 = new HumanPlayer(1, player1Board);
+        player2 = new HumanPlayer(2,player2Board);
+
         //player1 = new HumanPlayer(1, player1Board);
         //player2 = robotPlayer ? new RobotPlayer(2, player2Board) : new HumanPlayer(2,player2Board);
     }
@@ -95,8 +94,8 @@ public class Board extends Outcome implements SeedDispersalStrategy{
             startIndex = houseNumber + NUM_HOUSES_EACH + 1; // we need to start from the next house
         }
 
-        int finalIndex = 0;
-        finalIndex = clockwiseDispersal(startIndex,seeds,gameBoard);
+        int finalIndex;
+        finalIndex = disperse(startIndex,seeds,gameBoard);
 
         if (outcome1(finalIndex,playerTurn, gameBoard)){
             this.playerTurn = BoardUtils.returnNextPlayer(playerTurn);
@@ -167,7 +166,7 @@ public class Board extends Outcome implements SeedDispersalStrategy{
 
 
     @Override
-    public int clockwiseDispersal(int startIndex, int seeds, Pit[] gameBoard) {
+    public int disperse(int startIndex, int seeds, Pit[] gameBoard) {
         int finalIndex = 0;
 
         for (int i=startIndex; seeds>0;i++){

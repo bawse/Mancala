@@ -4,7 +4,6 @@ package kalah;
 import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 import kalah.game.Board;
-import kalah.game.RobotPlayer;
 import kalah.util.BoardUtils;
 import kalah.util.IOHandler;
 
@@ -15,9 +14,8 @@ import kalah.util.IOHandler;
  */
 public class Kalah {
 
-	static final int NUM_HOUSES_EACH = 6;
-	static final int NUM_SEEDS_PER_HOUSE = 4;
-	boolean robotPlayer = false;
+	static int NUM_HOUSES_EACH;
+	static  int NUM_SEEDS_PER_HOUSE;
 	IO io;
 
 	public static void main(String[] args) {
@@ -27,13 +25,15 @@ public class Kalah {
 		this.io = io;
 		IOHandler printer = new IOHandler(io);
 
+        setHouses(6);
+        setSeeds(4);
 		int playerTurn = 1;
 		int houseNumber;
 
-		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE, robotPlayer);
+		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE);
 		printer.boardString(board.getGameBoard());
-		while ((!BoardUtils.gameOver(board, playerTurn) && board.getPlayer(playerTurn) instanceof RobotPlayer && (houseNumber = ((RobotPlayer)board.getPlayer(playerTurn)).getMove(board)) >= 0) ||
-				!BoardUtils.gameOver(board, playerTurn) && (houseNumber = io.readInteger("Player P"+playerTurn+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q")) >= 0) {
+        //(!BoardUtils.gameOver(board, playerTurn) && board.getPlayer(playerTurn) instanceof RobotPlayer && (houseNumber = ((RobotPlayer)board.getPlayer(playerTurn)).getMove(board)) >= 0) ||
+		while (!BoardUtils.gameOver(board, playerTurn) && (houseNumber = io.readInteger("Player P"+playerTurn+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q")) >= 0) {
 
 			playerTurn = board.performMove(houseNumber, playerTurn);
 			printer.boardString(board.getGameBoard());
@@ -46,6 +46,13 @@ public class Kalah {
 		}
 
 	}
+
+	public void setHouses(int numHouses){
+	    this.NUM_HOUSES_EACH = numHouses;
+    }
+    public void setSeeds(int numSeeds){
+        this.NUM_SEEDS_PER_HOUSE = numSeeds;
+    }
 
 
 }
