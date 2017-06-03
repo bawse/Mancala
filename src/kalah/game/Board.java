@@ -13,7 +13,7 @@ import java.util.List;
  * In this class, both player sides are represented as a 1D array in the form of {1,2,3,4,5,6,S} where the numbers
  * represent the house number, and S represents the player store.
  */
-public class Board extends Outcome{
+public class Board extends Outcome implements SeedDispersalStrategy{
 
     private int playerTurn;
     private Player player1;
@@ -96,18 +96,7 @@ public class Board extends Outcome{
         }
 
         int finalIndex = 0;
-
-        for (int i=startIndex; seeds>0;i++){
-            if (i>gameBoardLength-1){
-                i=0;
-            }
-            finalIndex = i;
-            if (!BoardUtils.otherPlayerStore(i, gameBoardLength, playerTurn)){
-                gameBoard[i].incrementSeeds();
-                seeds--;
-            }
-        }
-        updatePlayerBoards(gameBoard);
+        finalIndex = clockwiseDispersal(startIndex,seeds,gameBoard);
 
         if (outcome1(finalIndex,playerTurn, gameBoard)){
             this.playerTurn = BoardUtils.returnNextPlayer(playerTurn);
@@ -177,5 +166,21 @@ public class Board extends Outcome{
     }
 
 
+    @Override
+    public int clockwiseDispersal(int startIndex, int seeds, Pit[] gameBoard) {
+        int finalIndex = 0;
 
+        for (int i=startIndex; seeds>0;i++){
+            if (i>gameBoardLength-1){
+                i=0;
+            }
+            finalIndex = i;
+            if (!BoardUtils.otherPlayerStore(i, gameBoardLength, playerTurn)){
+                gameBoard[i].incrementSeeds();
+                seeds--;
+            }
+        }
+        updatePlayerBoards(gameBoard);
+        return finalIndex;
+    }
 }

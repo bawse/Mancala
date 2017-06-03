@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Jay on 5/8/2017.
  */
-public abstract class Outcome implements Strategy {
+public abstract class Outcome implements OutcomeStrategy {
 
     int NUM_HOUSES_EACH = 6; // default value is 6
 
