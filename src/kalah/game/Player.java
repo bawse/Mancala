@@ -1,9 +1,12 @@
 package kalah.game;
 
+
+import com.qualitascorpus.testsupport.IO;
+
 /**
  * Created by Jay on 5/8/2017.
  */
-public class Player {
+public abstract class Player {
     private int playerNumber;
     private Pit[] playerBoard;
 
@@ -24,5 +27,8 @@ public class Player {
     public void setPlayerBoard(Pit[] playerBoard) {
         this.playerBoard = playerBoard;
     }
+
+
+    public abstract int getMove(IO io);
 
 }
