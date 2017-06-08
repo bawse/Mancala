@@ -33,7 +33,7 @@ public class Kalah {
 		Board board = new Board(playerTurn,NUM_HOUSES_EACH,NUM_SEEDS_PER_HOUSE);
 		printer.boardString(board.getGameBoard());
 
-		while (!BoardUtils.gameOver(board, playerTurn) && (houseNumber = board.getPlayer(playerTurn).getMove(io)) >= 0) {
+		while (!BoardUtils.gameOver(board, playerTurn) && (houseNumber = board.getPlayer(playerTurn).getMove(io, board.getGameBoard())) >= 0) {
 			playerTurn = board.performMove(houseNumber, playerTurn);
 			printer.boardString(board.getGameBoard());
 		}

@@ -29,6 +29,6 @@ public abstract class Player {
     }
 
 
-    public abstract int getMove(IO io);
+    public abstract int getMove(IO io, Pit[] gameBoard);
 
 }

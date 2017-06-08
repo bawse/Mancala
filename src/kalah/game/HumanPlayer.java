@@ -11,7 +11,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public int getMove(IO io) {
+    public int getMove(IO io, Pit[] gameBoard) {
         return io.readInteger("Player P"+getPlayerNumber()+"'s turn - Specify house number or 'q' to quit: ",1,6,-1,"q");
     }
 
